@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "server/api;server";
+
+
+service Jack {
+    rpc GetStudent (GetStudentRequest) returns (GetStudentResponse);
+}
+
+// Định nghĩa message Student 
+message Student {
+    uint64 id = 1;
+    string name = 2;
+    double gpa = 3;
+}
+
+message GetStudentRequest {
+    uint64 student_id = 1;
+}
+
+message GetStudentResponse {
+    Student student = 1;
+}
